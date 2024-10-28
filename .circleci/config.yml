@@ -15,9 +15,8 @@ jobs:
     steps:
       - checkout
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-      - run: brew tap homebrew/cask
-      - run: brew install --cask dotnet-sdk
-      - run: brew install --cask android-sdk
+      - run: brew install --cask dotnet-sdk --force
+      - run: brew install --cask android-sdk --force
       - run: brew install --cask android-platform-tools
       - run: ls /usr/local/share
       - run: dotnet --version
