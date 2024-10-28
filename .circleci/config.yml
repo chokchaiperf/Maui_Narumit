@@ -11,6 +11,8 @@ jobs:
       - checkout
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       - run: brew install --cask dotnet-sdk
+      - run: brew install --cask android-platform-tools
+      - run: brew install android-sdk
       - run: dotnet --version
       - run: sudo dotnet workload install maui
       - run: cd Maui_Narumit
