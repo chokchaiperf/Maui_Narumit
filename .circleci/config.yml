@@ -12,6 +12,9 @@ jobs:
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       - run: brew install --cask dotnet-sdk
       - run: dotnet --version
+      - run: dotnet workload install maui
+      - run: cd Maui_Narumit
+      - run: dotnet build Maui_Narumit.csproj
 workflows:
   verify:
     jobs:
