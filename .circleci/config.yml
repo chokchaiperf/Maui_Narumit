@@ -7,13 +7,17 @@ jobs:
   build:
     macos:
       xcode: 15.4.0
+    environment:
+      ANDROID_HOME: "/usr/local/share/android-sdk"
+      ANDROID_SDK_HOME: "/usr/local/share/android-sdk"
+      ANDROID_SDK_ROOT: "/usr/local/share/android-sdk"
     steps:
       - checkout
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       - run: brew install --cask dotnet-sdk
       - run: brew install --cask android-platform-tools
       - run: brew install android-sdk
-      - run: ls /Users/$USER/Library
+      - run: ls /usr/local/share/
       - run: dotnet --version
       - run: sudo dotnet workload install maui
       # - run: cd Maui_Narumit
