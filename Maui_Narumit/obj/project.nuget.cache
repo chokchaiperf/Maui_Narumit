@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BQAMR1znwgs=",
+  "dgSpecHash": "iBUx9W7x/uA=",
   "success": true,
   "projectFilePath": "/Users/bloodrainz-mb/Desktop/work/workspace/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj",
   "expectedPackageFiles": [
@@ -114,9 +114,7 @@
     "/Users/bloodrainz-mb/.nuget/packages/microsoft.android.runtime.34.android-x86/34.0.138/microsoft.android.runtime.34.android-x86.34.0.138.nupkg.sha512",
     "/Users/bloodrainz-mb/.nuget/packages/microsoft.android.runtime.34.android-x64/34.0.138/microsoft.android.runtime.34.android-x64.34.0.138.nupkg.sha512",
     "/Users/bloodrainz-mb/.nuget/packages/microsoft.ios.ref.net8.0_17.5/17.5.8030/microsoft.ios.ref.net8.0_17.5.17.5.8030.nupkg.sha512",
-    "/Users/bloodrainz-mb/.nuget/packages/microsoft.ios.runtime.iossimulator-arm64.net8.0_17.5/17.5.8030/microsoft.ios.runtime.iossimulator-arm64.net8.0_17.5.17.5.8030.nupkg.sha512",
-    "/Users/bloodrainz-mb/.nuget/packages/microsoft.maccatalyst.ref.net8.0_17.5/17.5.8030/microsoft.maccatalyst.ref.net8.0_17.5.17.5.8030.nupkg.sha512",
-    "/Users/bloodrainz-mb/.nuget/packages/microsoft.maccatalyst.runtime.maccatalyst-arm64.net8.0_17.5/17.5.8030/microsoft.maccatalyst.runtime.maccatalyst-arm64.net8.0_17.5.17.5.8030.nupkg.sha512"
+    "/Users/bloodrainz-mb/.nuget/packages/microsoft.ios.runtime.iossimulator-arm64.net8.0_17.5/17.5.8030/microsoft.ios.runtime.iossimulator-arm64.net8.0_17.5.17.5.8030.nupkg.sha512"
   ],
   "logs": []
 }
