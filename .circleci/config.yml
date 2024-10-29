@@ -4,24 +4,21 @@ version: 2.1
 jobs:
   build:
     macos:
-      xcode: 15.4.0
-    environment:
-      ANDROID_HOME: "/usr/local/share/android-sdk"
-      ANDROID_SDK_HOME: "/usr/local/share/android-sdk"
-      ANDROID_SDK_ROOT: "/usr/local/share/android-sdk"
-      PATH: "$PATH:$ANDROID_HOME/tools/bin"
+      xcode: "15.4.0"
     steps:
       - checkout
-      - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-      - run: brew install --cask dotnet-sdk --force
-      - run: brew install --cask android-sdk --force
-      - run: brew install --cask android-platform-tools
-      - run: ls /Users/$USER/Library/android
-      - run: dotnet --version
-      - run: sudo dotnet workload install maui
-      - run: cd Maui_Narumit
-      - run: dotnet build
+      - run:
+          name: Install .NET SDK
+          command: |
+            brew install --cask dotnet-sdk
+            dotnet workload install maui
+      - run:
+          name: Build .NET MAUI Project
+          command: |
+            cd MyMauiApp
+            dotnet build -t:Run -f net8.0-ios
 workflows:
+  version: 2
   build_and_test:
     jobs:
       - build
