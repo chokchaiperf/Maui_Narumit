@@ -1,8 +1,6 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
-orbs:
-  macos: circleci/macos@2.5.2
 jobs:
   build:
     macos:
@@ -18,13 +16,12 @@ jobs:
       - run: brew install --cask dotnet-sdk --force
       - run: brew install --cask android-sdk --force
       - run: brew install --cask android-platform-tools
-      - run: ls /usr/local/share
       - run: ls /Users/$USER/Library/android
       - run: dotnet --version
       - run: sudo dotnet workload install maui
       - run: cd Maui_Narumit
       - run: dotnet build
 workflows:
-  verify:
+  build_and_test:
     jobs:
       - build
