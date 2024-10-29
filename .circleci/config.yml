@@ -16,7 +16,7 @@ jobs:
           name: Build .NET MAUI Project
           command: |
             cd Maui_Narumit
-            dotnet build -t:Run -f net8.0-ios
+            dotnet build -f net8.0-ios
 workflows:
   version: 2
   build_and_test:
