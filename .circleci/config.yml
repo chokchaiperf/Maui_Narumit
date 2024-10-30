@@ -28,10 +28,7 @@ jobs:
           name: Install Android SDK with brew
           command: |
             brew install android-sdk
-      - run: 
-          name: Install Android
-          command: |
-            android update sdk --no-ui
+            ls /Users/$USER/Library
       - run:
           name: Build .NET MAUI Project
           command: |
