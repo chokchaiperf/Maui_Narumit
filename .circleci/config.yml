@@ -12,23 +12,15 @@ jobs:
           command: |
             brew doctor
       - run: 
-          name: Install rosetta
-          command: |
-            sudo softwareupdate --install-rosetta --agree-to-license
-      - run: 
           name: Install Java
           command: |
-            brew install --cask temurin@8
+            brew install openjdk
       - run:
           name: Install Android SDK with brew
           command: |
             brew install android-sdk
             brew install --cask android-platform-tools
             export ANDROID_HOME=/usr/local/opt/android-sdk
-      - run:
-          name: Custom command
-          command: |
-            sdkmanager list
       # - run:
       #     name: Install .NET SDK
       #     command: |
