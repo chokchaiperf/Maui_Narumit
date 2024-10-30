@@ -2,7 +2,7 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 jobs:
-  build:
+  ios_build:
     macos:
       xcode: "16.0.0"
     steps:
@@ -28,7 +28,9 @@ jobs:
           name: Install Android SDK with brew
           command: |
             brew install android-sdk
-            ls /Users/$USER/Library
+            ls /usr/local/opt/
+            export ANDROID_HOME=/usr/local/opt/android-sdk
+            echo $ANDROID_HOME
       - run:
           name: Build .NET MAUI Project
           command: |
@@ -43,4 +45,4 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - ios_build
