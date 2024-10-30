@@ -16,6 +16,10 @@ jobs:
           command: |
             brew install --cask dotnet-sdk
             sudo dotnet workload install maui
+      - run: 
+          name: Install rosetta
+          command: |
+            sudo softwareupdate --install-rosetta --agree-to-license
       - run:
           name: Install Android SDK
           command: |
