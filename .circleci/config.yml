@@ -11,6 +11,16 @@ jobs:
           name: Check HomeBrew
           command: |
             brew doctor
+      - run: 
+          name: Install Java
+          command: |
+            brew install --cask temurin@8
+      - run:
+          name: Install Android SDK with brew
+          command: |
+            brew install android-sdk
+            brew install --cask android-platform-tools
+            export ANDROID_HOME=/usr/local/opt/android-sdk
       - run:
           name: Custom command
           command: |
@@ -24,16 +34,6 @@ jobs:
           name: Install rosetta
           command: |
             sudo softwareupdate --install-rosetta --agree-to-license
-      - run: 
-          name: Install Java
-          command: |
-            brew install --cask temurin@8
-      - run:
-          name: Install Android SDK with brew
-          command: |
-            brew install android-sdk
-            brew install --cask android-platform-tools
-            export ANDROID_HOME=/usr/local/opt/android-sdk
       # - run:
       #     name: Build .NET MAUI Project
       #     command: |
