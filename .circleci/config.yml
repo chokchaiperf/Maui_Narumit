@@ -25,9 +25,12 @@ jobs:
           command: |
             brew install --cask temurin@8
       - run:
-          name: Install Android SDK
+          name: Install Android SDK with brew
           command: |
             brew install android-sdk
+      - run: 
+          name: Install Android
+          command: |
             android update sdk --no-ui
       - run:
           name: Build .NET MAUI Project
