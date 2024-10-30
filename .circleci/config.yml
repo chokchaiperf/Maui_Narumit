@@ -20,10 +20,13 @@ jobs:
           name: Install rosetta
           command: |
             sudo softwareupdate --install-rosetta --agree-to-license
+      - run: 
+          name: Install Java
+          command: |
+            brew install --cask temurin@8
       - run:
           name: Install Android SDK
           command: |
-            brew install --cask temurin@8
             brew install android-sdk
             android update sdk --no-ui
       - run:
