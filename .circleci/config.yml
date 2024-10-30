@@ -21,21 +21,21 @@ jobs:
             brew install android-sdk
             brew install --cask android-platform-tools
             export ANDROID_HOME=/usr/local/opt/android-sdk
-      # - run:
-      #     name: Install .NET SDK
-      #     command: |
-      #       brew install --cask dotnet-sdk
-      #       sudo dotnet workload install maui
-      # - run:
-      #     name: Build .NET MAUI Project
-      #     command: |
-      #       cd Maui_Narumit
-      #       dotnet build -f net8.0-ios
-      # - run:
-      #     name: Build .NET MAUI Project
-      #     command: |
-      #       cd Maui_Narumit
-      #       dotnet build -f net8.0-android
+      - run:
+          name: Install .NET SDK
+          command: |
+            brew install --cask dotnet-sdk
+            sudo dotnet workload install maui
+      - run:
+          name: Build .NET MAUI Project
+          command: |
+            cd Maui_Narumit
+            dotnet build -f net8.0-ios
+      - run:
+          name: Build .NET MAUI Project
+          command: |
+            cd Maui_Narumit
+            dotnet build -f net8.0-android
 workflows:
   version: 2
   build_and_test:
