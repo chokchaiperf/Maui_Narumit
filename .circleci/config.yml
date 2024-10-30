@@ -8,10 +8,20 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Check HomeBrew
+          command: |
+            brew doctor
+      - run:
           name: Install .NET SDK
           command: |
             brew install --cask dotnet-sdk
             sudo dotnet workload install maui
+      - run:
+          name: Install Android SDK
+          command: |
+            brew install --cask temurin@8
+            brew install android-sdk
+            android update sdk --no-ui
       - run:
           name: Build .NET MAUI Project
           command: |
