@@ -12,6 +12,10 @@ jobs:
           command: |
             brew doctor
       - run: 
+          name: Install rosetta
+          command: |
+            sudo softwareupdate --install-rosetta --agree-to-license
+      - run: 
           name: Install Java
           command: |
             brew install --cask temurin@8
@@ -30,10 +34,6 @@ jobs:
       #     command: |
       #       brew install --cask dotnet-sdk
       #       sudo dotnet workload install maui
-      - run: 
-          name: Install rosetta
-          command: |
-            sudo softwareupdate --install-rosetta --agree-to-license
       # - run:
       #     name: Build .NET MAUI Project
       #     command: |
