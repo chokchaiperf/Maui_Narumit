@@ -28,9 +28,7 @@ jobs:
           name: Install Android SDK with brew
           command: |
             brew install android-sdk
-            ls /usr/local/opt/
             export ANDROID_HOME=/usr/local/opt/android-sdk
-            echo $ANDROID_HOME
       - run:
           name: Build .NET MAUI Project
           command: |
