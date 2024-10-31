@@ -12,6 +12,10 @@ jobs:
           command: |
             brew doctor
       - run:
+          name: install java
+          command: |
+            brew install --cask temurin
+      - run:
           name: Install Android SDK with brew
           command: |
             brew install --cask android-commandlinetools
