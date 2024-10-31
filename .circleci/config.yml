@@ -34,6 +34,7 @@ jobs:
             # yes | sdkmanager "tools" "platform-tools" "build-tools;33.0.1" "platforms;android-33" "system-images;android-31;google_apis;x86_64" "extras;intel;Hardware_Accelerated_Execution_Manager"
             # y | sdkmanager --licenses 
             java -version
+            mdfind kind:folder "Android"
       - run:
           name: Install .NET SDK
           command: |
