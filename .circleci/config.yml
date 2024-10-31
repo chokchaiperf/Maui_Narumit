@@ -29,7 +29,7 @@ jobs:
           name: sdkmanager stage
           command: |
             rm -rf ~/.android
-            sdkmanager --update
+            # sdkmanager --update
             # yes | sdkmanager "extras;intel;Hardware_Accelerated_Execution_Manager"
             # yes | sdkmanager "tools" "platform-tools" "build-tools;33.0.1" "platforms;android-33" "system-images;android-31;google_apis;x86_64" "extras;intel;Hardware_Accelerated_Execution_Manager"
             # y | sdkmanager --licenses 
