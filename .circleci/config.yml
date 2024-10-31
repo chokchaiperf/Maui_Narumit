@@ -19,8 +19,8 @@ jobs:
           name: Install Android SDK with brew
           command: |
             brew install --cask android-commandlinetools
-            yes | sdkmanager "tools" "platform-tools" "build-tools;33.0.1" "platforms;android-33" "system-images;android-31;google_apis;x86_64" "extras;intel;Hardware_Accelerated_Execution_Manager"
-            yes | sdkmanager --licenses
+            # yes | sdkmanager "tools" "platform-tools" "build-tools;33.0.1" "platforms;android-33" "system-images;android-31;google_apis;x86_64" "extras;intel;Hardware_Accelerated_Execution_Manager"
+            # yes | sdkmanager --licenses
       - run:
           name: Install Android SDK with brew
           command: |
