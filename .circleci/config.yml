@@ -37,6 +37,9 @@ jobs:
           name: install android sdk
           command: |
             choco install android-sdk -y
+      - run: 
+          name: install android sdk
+          command: |
             sdkmanager --list
 
 workflows:
