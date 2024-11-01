@@ -11366,7 +11366,7 @@
         }
       }
     },
-    "net8.0-android34.0/ios-arm64": {
+    "net8.0-android34.0/iossimulator-arm64": {
       "GoogleGson/2.10.1.4": {
         "type": "package",
         "compile": {
@@ -16074,7 +16074,7 @@
         }
       }
     },
-    "net8.0-ios17.5/ios-arm64": {
+    "net8.0-ios17.5/iossimulator-arm64": {
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -20010,7 +20010,7 @@
             "version": "[17.5.8030, 17.5.8030]"
           },
           {
-            "name": "Microsoft.iOS.Runtime.ios-arm64.net8.0_17.5",
+            "name": "Microsoft.iOS.Runtime.iossimulator-arm64.net8.0_17.5",
             "version": "[17.5.8030, 17.5.8030]"
           }
         ],
@@ -20038,7 +20038,7 @@
       "android-x86": {
         "#import": []
       },
-      "ios-arm64": {
+      "iossimulator-arm64": {
         "#import": []
       }
     }
