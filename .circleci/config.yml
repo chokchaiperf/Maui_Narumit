@@ -33,7 +33,11 @@ jobs:
     shell: powershell.exe -ExecutionPolicy Bypass
     steps:
       - checkout
-      - run: sdkmanager -version
+      - run: 
+          name: install android sdk
+          command: |
+            choco install android-sdk -y
+            sdkmanager --list
 
 workflows:
   version: 2
