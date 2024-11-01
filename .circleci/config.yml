@@ -22,7 +22,7 @@ jobs:
             cd Maui_Narumit
             dotnet build -f:net8.0-ios /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
       - store_artifacts:
-          path: '**/*.ipa'
+          path: './Maui_Narumit/bin/Release/net8.0-ios/com.companyname.maui_narumit-Signed.ipa'
           destination: artifact-file
   android_build:
     machine:
@@ -50,9 +50,9 @@ jobs:
             cd Maui_Narumit
             dotnet restore --inactive
             dotnet build -f:net8.0-android /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
-      # - store_artifacts:
-      #     path: './Maui_Narumit/bin/Release/net8.0-android/'
-      #     destination: artifact-file
+      - store_artifacts:
+          path: './Maui_Narumit/bin/Release/net8.0-android/com.companyname.maui_narumit-Signed.aab'
+          destination: artifact-file
 
 workflows:
   version: 2
