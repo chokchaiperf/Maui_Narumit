@@ -20,7 +20,7 @@ jobs:
           name: Build .NET MAUI Project
           command: |
             cd Maui_Narumit
-            dotnet build -f:net8.0-ios 
+            dotnet build -f:net8.0-ios /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
       - store_artifacts:
           path: '**/*.ipa'
           destination: artifact-file
@@ -49,7 +49,7 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet restore --inactive
-            dotnet build -f:net8.0-android 
+            dotnet build -f:net8.0-android /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
       # - store_artifacts:
       #     path: './Maui_Narumit/bin/Release/net8.0-android/'
       #     destination: artifact-file
