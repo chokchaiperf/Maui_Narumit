@@ -32,11 +32,11 @@ jobs:
           name: install android sdk
           command: |
             choco install android-sdk -y
-      # - run: 
-      #     name: manage android sdk
-      #     command: |
-      #       yes | sdkmanager --licenses
-      #       sdkmanager "build-tools;33.0.3"
+      - run: 
+          name: manage android sdk
+          command: |
+            "%ANDROID_HOME%\tools\bin\sdkmanager.bat --licenses" 
+            sdkmanager "build-tools;33.0.3"
       - run:
           name: Install .NET SDK
           command: |
