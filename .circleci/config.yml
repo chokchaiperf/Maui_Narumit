@@ -35,6 +35,7 @@ jobs:
       - run: 
           name: manage android sdk
           command: |
+            yes | sdkmanager --licenses
             yes | sdkmanager "build-tools;33.0.3"
       - run:
           name: Install .NET SDK
