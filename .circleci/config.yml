@@ -51,12 +51,12 @@ jobs:
             dotnet restore --inactive
             dotnet publish -f:net8.0-android -c:Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false
       - store_artifacts:
-          path: '**/*.aab'
+          path: './Release/net8.0-android'
           destination: artifact-file
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - ios_build
+      # - ios_build
       - android_build
