@@ -40,11 +40,12 @@ jobs:
       - run:
           name: Install .NET SDK
           command: |
-            dotnet workload install maui-android
+            dotnet workload install maui
       - run:
           name: Build .NET MAUI Project
           command: |
             cd Maui_Narumit
+            dotnet restore --inactive
             dotnet build -f net8.0-android
 
 workflows:
