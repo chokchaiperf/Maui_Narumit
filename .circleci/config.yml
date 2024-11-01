@@ -12,30 +12,6 @@ jobs:
           command: |
             brew doctor
       - run:
-          name: install java
-          command: |
-            brew install --cask temurin
-      - run:
-          name: Install Android SDK with brew
-          command: |
-            brew install --cask android-sdk
-      - run:
-          name: setup env
-          command: |
-            export PATH=$PATH:/Users/username/Library/Android/sdk/tools/bin
-            export ANDROID_HOME=/usr/local/share/android-commandlinetools
-            export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
-      - run:
-          name: sdkmanager stage
-          command: |
-            rm -rf ~/.android
-            # sdkmanager --update
-            # yes | sdkmanager "extras;intel;Hardware_Accelerated_Execution_Manager"
-            # yes | sdkmanager "tools" "platform-tools" "build-tools;33.0.1" "platforms;android-33" "system-images;android-31;google_apis;x86_64" "extras;intel;Hardware_Accelerated_Execution_Manager"
-            # y | sdkmanager --licenses 
-            java -version
-            sudo find / -type d -name "android"
-      - run:
           name: Install .NET SDK
           command: |
             brew install --cask dotnet-sdk
@@ -50,8 +26,17 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet build -f net8.0-android
+  android_job:
+    machine:
+      image: "windows-server-2019-vs2019:current"
+      resource_class: windows.medium
+      shell: powershell.exe -ExecutionPolicy Bypass
+    step:
+      - run: Write-Host 'Hello, Windows'
+
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - ios_build
+      # - ios_build
+      - android_job
