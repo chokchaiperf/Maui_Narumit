@@ -33,7 +33,7 @@ jobs:
     shell: powershell.exe -ExecutionPolicy Bypass
     steps:
       - checkout
-      - run: Write-Host 'Hello, Windows'
+      - run: sdkmanager -version
 
 workflows:
   version: 2
