@@ -36,7 +36,7 @@ jobs:
           name: manage android sdk
           command: |
             "%ANDROID_HOME%\tools\bin\sdkmanager.bat --licenses" 
-            sdkmanager "build-tools;34.0.0"
+            sdkmanager "tools" "platform-tools" "build-tools;34.0.0" "platforms;android-34"
       - run:
           name: Install .NET SDK
           command: |
