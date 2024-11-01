@@ -15,13 +15,16 @@ jobs:
           name: Install .NET SDK
           command: |
             brew install --cask dotnet-sdk
-            sudo dotnet workload install maui-ios
+            sudo dotnet workload install maui
       - run:
           name: Build .NET MAUI Project
           command: |
             cd Maui_Narumit
-            dotnet build -f:net8.0-ios -c:Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false
-  android_job:
+            dotnet build -f:net8.0-ios -c:Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
+      - store_artifacts:
+          path: '**/*.ipa'
+          destination: artifact-file
+  android_build:
     machine:
       image: windows-server-2022-gui:current
     resource_class: windows.medium
@@ -47,10 +50,13 @@ jobs:
             cd Maui_Narumit
             dotnet restore --inactive
             dotnet build -f:net8.0-android -c:Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false
+      - store_artifacts:
+          path: '**/*.aab'
+          destination: artifact-file
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - ios_build
-      - android_job
+      - android_build
