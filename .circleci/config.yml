@@ -20,7 +20,7 @@ jobs:
           name: Build .NET MAUI Project
           command: |
             cd Maui_Narumit
-            dotnet build -f net8.0-ios
+            dotnet build -f:net8.0-ios -c:Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false
   android_job:
     machine:
       image: windows-server-2022-gui:current
@@ -46,11 +46,11 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet restore --inactive
-            dotnet build -f net8.0-android
+            dotnet build -f:net8.0-android -c:Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      # - ios_build
+      - ios_build
       - android_job
