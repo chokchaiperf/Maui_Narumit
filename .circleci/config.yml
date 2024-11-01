@@ -28,10 +28,11 @@ jobs:
             dotnet build -f net8.0-android
   android_job:
     machine:
-      image: "windows-server-2019-vs2019:current"
-      resource_class: windows.medium
-      shell: powershell.exe -ExecutionPolicy Bypass
-    step:
+      image: windows-server-2022-gui:current
+    resource_class: windows.medium
+    shell: powershell.exe -ExecutionPolicy Bypass
+    steps:
+      - checkout
       - run: Write-Host 'Hello, Windows'
 
 workflows:
