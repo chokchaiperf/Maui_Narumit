@@ -50,6 +50,10 @@ jobs:
             cd Maui_Narumit
             dotnet restore --inactive
             dotnet publish -f:net8.0-android -c:Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false
+      - run:
+          name: find release file
+          command: |
+            dir /s *Maui_Narumit*
       - store_artifacts:
           path: './Release/net8.0-android'
           destination: artifact-file
