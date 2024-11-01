@@ -22,7 +22,7 @@ jobs:
             cd Maui_Narumit
             dotnet build -f:net8.0-ios /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
       - store_artifacts:
-          path: './Maui_Narumit/bin/Release/net8.0-ios/ios-arm64/com.companyname.maui_narumit.ipa'
+          path: './Maui_Narumit/bin/Release/net8.0-ios'
           destination: artifact-file
   android_build:
     machine:
