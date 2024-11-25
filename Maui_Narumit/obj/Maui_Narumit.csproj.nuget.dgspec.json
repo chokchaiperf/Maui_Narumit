@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bloodrainz-mb/Desktop/work/workspace/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj": {}
+    "/Users/bloodrainz/Desktop/work/MAUI_Project/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj": {}
   },
   "projects": {
-    "/Users/bloodrainz-mb/Desktop/work/workspace/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj": {
+    "/Users/bloodrainz/Desktop/work/MAUI_Project/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bloodrainz-mb/Desktop/work/workspace/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj",
+        "projectUniqueName": "/Users/bloodrainz/Desktop/work/MAUI_Project/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj",
         "projectName": "Maui_Narumit",
-        "projectPath": "/Users/bloodrainz-mb/Desktop/work/workspace/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj",
-        "packagesPath": "/Users/bloodrainz-mb/.nuget/packages/",
-        "outputPath": "/Users/bloodrainz-mb/Desktop/work/workspace/Maui_Narumit/Maui_Narumit/obj/",
+        "projectPath": "/Users/bloodrainz/Desktop/work/MAUI_Project/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj",
+        "packagesPath": "/Users/bloodrainz/.nuget/packages/",
+        "outputPath": "/Users/bloodrainz/Desktop/work/MAUI_Project/Maui_Narumit/Maui_Narumit/obj/",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
-          "/Users/bloodrainz-mb/.nuget/NuGet/NuGet.Config"
+          "/Users/bloodrainz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-android",
@@ -30,7 +30,7 @@
             "targetAlias": "net8.0-android",
             "projectReferences": {}
           },
-          "net8.0-ios17.5": {
+          "net8.0-ios18.0": {
             "targetAlias": "net8.0-ios",
             "projectReferences": {}
           }
@@ -57,16 +57,16 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.82, )"
+              "version": "[8.0.83, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.82, )"
+              "version": "[8.0.83, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )",
+              "version": "[8.0.11, )",
               "autoReferenced": true
             }
           },
@@ -84,23 +84,23 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.Android.Ref.34",
-              "version": "[34.0.138, 34.0.138]"
+              "version": "[34.0.145, 34.0.145]"
             },
             {
               "name": "Microsoft.Android.Runtime.34.android-arm",
-              "version": "[34.0.138, 34.0.138]"
+              "version": "[34.0.145, 34.0.145]"
             },
             {
               "name": "Microsoft.Android.Runtime.34.android-arm64",
-              "version": "[34.0.138, 34.0.138]"
+              "version": "[34.0.145, 34.0.145]"
             },
             {
               "name": "Microsoft.Android.Runtime.34.android-x64",
-              "version": "[34.0.138, 34.0.138]"
+              "version": "[34.0.145, 34.0.145]"
             },
             {
               "name": "Microsoft.Android.Runtime.34.android-x86",
-              "version": "[34.0.138, 34.0.138]"
+              "version": "[34.0.145, 34.0.145]"
             }
           ],
           "frameworkReferences": {
@@ -111,9 +111,9 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-ios17.5": {
+        "net8.0-ios18.0": {
           "targetAlias": "net8.0-ios",
           "dependencies": {
             "Microsoft.Extensions.Logging.Debug": {
@@ -122,16 +122,16 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.82, )"
+              "version": "[8.0.83, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.82, )"
+              "version": "[8.0.83, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )",
+              "version": "[8.0.11, )",
               "autoReferenced": true
             }
           },
@@ -148,12 +148,12 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.iOS.Ref.net8.0_17.5",
-              "version": "[17.5.8030, 17.5.8030]"
+              "name": "Microsoft.iOS.Ref.net8.0_18.0",
+              "version": "[18.0.8314, 18.0.8314]"
             },
             {
-              "name": "Microsoft.iOS.Runtime.iossimulator-arm64.net8.0_17.5",
-              "version": "[17.5.8030, 17.5.8030]"
+              "name": "Microsoft.iOS.Runtime.iossimulator-arm64.net8.0_18.0",
+              "version": "[18.0.8314, 18.0.8314]"
             }
           ],
           "frameworkReferences": {
@@ -164,7 +164,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

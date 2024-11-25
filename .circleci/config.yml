@@ -3,10 +3,28 @@
 version: 2.1
 jobs:
   ios_build:
-    macos:
-      xcode: "16.0.0"
+    # macos:
+    #   xcode: "16.0.0"
+    machine: true
+    resource_class: bloodrainzwork/macrunner
     steps:
       - checkout
+      # - run:
+      #     name: Download Certificate
+      #     command: |
+      #       some command to download certificate
+      # - run:
+      #     name: Install Certificate
+      #     command: |
+      #       security import ./MyPrivateKey.p12 -k bobbins.keychain -P privateKeyPassword
+      # - run:
+      #     name: Download Provisioning profile
+      #     command: |
+      #       some command to download Provisioning profile
+      # - run:
+      #     name: Install Provisioning profile
+      #     command: |
+      #       sh script/installMobileProvisionFile.sh
       - run:
           name: Check HomeBrew
           command: |
@@ -59,4 +77,4 @@ workflows:
   build_and_test:
     jobs:
       - ios_build
-      - android_build
+      # - android_build
