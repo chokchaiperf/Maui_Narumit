@@ -3,32 +3,37 @@
 version: 2.1
 jobs:
   ios_build:
-    # macos:
-    #   xcode: "16.0.0"
-    machine: true
-    resource_class: bloodrainzwork/macrunner
+    macos:
+      xcode: "16.1.0"
     steps:
       - checkout
-      # - run:
-      #     name: Download Certificate
-      #     command: |
-      #       some command to download certificate
-      # - run:
-      #     name: Install Certificate
-      #     command: |
-      #       security import ./MyPrivateKey.p12 -k bobbins.keychain -P privateKeyPassword
-      # - run:
-      #     name: Download Provisioning profile
-      #     command: |
-      #       some command to download Provisioning profile
-      # - run:
-      #     name: Install Provisioning profile
-      #     command: |
-      #       sh script/installMobileProvisionFile.sh
       - run:
           name: Check HomeBrew
           command: |
             brew doctor
+      - run: |
+          # create variables
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          PP_PATH=$RUNNER_TEMP/ManaFailFast2023AdHoc.mobileprovision
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+          # import certificate and provisioning profile from secrets
+          echo -n "${Certificate}" | base64 --decode -o $CERTIFICATE_PATH
+          echo -n "${Provisioning_profile}" | base64 --decode -o $PP_PATH
+
+          # create temporary keychain
+          security create-keychain -p "${KEYCHAIN_PASSWORD} $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "${KEYCHAIN_PASSWORD} $KEYCHAIN_PATH
+
+          # import certificate to keychain
+          security import $CERTIFICATE_PATH -P "${KEYCHAIN_PASSWORD}" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security set-key-partition-list -S apple-tool:,apple: -k "${KEYCHAIN_PASSWORD}" $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+
+          # apply provisioning profile
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
       - run:
           name: Install .NET SDK
           command: |

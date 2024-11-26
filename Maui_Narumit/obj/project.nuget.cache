@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s6L/IE0CH+U=",
+  "dgSpecHash": "O6QyA8hGAW4=",
   "success": true,
   "projectFilePath": "/Users/bloodrainz/Desktop/work/MAUI_Project/Maui_Narumit/Maui_Narumit/Maui_Narumit.csproj",
   "expectedPackageFiles": [
@@ -114,7 +114,7 @@
     "/Users/bloodrainz/.nuget/packages/microsoft.android.runtime.34.android-x86/34.0.145/microsoft.android.runtime.34.android-x86.34.0.145.nupkg.sha512",
     "/Users/bloodrainz/.nuget/packages/microsoft.android.runtime.34.android-x64/34.0.145/microsoft.android.runtime.34.android-x64.34.0.145.nupkg.sha512",
     "/Users/bloodrainz/.nuget/packages/microsoft.ios.ref.net8.0_18.0/18.0.8314/microsoft.ios.ref.net8.0_18.0.18.0.8314.nupkg.sha512",
-    "/Users/bloodrainz/.nuget/packages/microsoft.ios.runtime.iossimulator-arm64.net8.0_18.0/18.0.8314/microsoft.ios.runtime.iossimulator-arm64.net8.0_18.0.18.0.8314.nupkg.sha512"
+    "/Users/bloodrainz/.nuget/packages/microsoft.ios.runtime.ios-arm64.net8.0_18.0/18.0.8314/microsoft.ios.runtime.ios-arm64.net8.0_18.0.18.0.8314.nupkg.sha512"
   ],
   "logs": []
 }

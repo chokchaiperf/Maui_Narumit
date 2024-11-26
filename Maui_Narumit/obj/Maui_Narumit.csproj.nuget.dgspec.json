@@ -152,7 +152,7 @@
               "version": "[18.0.8314, 18.0.8314]"
             },
             {
-              "name": "Microsoft.iOS.Runtime.iossimulator-arm64.net8.0_18.0",
+              "name": "Microsoft.iOS.Runtime.ios-arm64.net8.0_18.0",
               "version": "[18.0.8314, 18.0.8314]"
             }
           ],
@@ -180,7 +180,7 @@
         "android-x86": {
           "#import": []
         },
-        "iossimulator-arm64": {
+        "ios-arm64": {
           "#import": []
         }
       }
