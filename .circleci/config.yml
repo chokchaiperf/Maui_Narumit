@@ -78,7 +78,7 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet restore --inactive
-            dotnet publish -f net8.0-android -c Release -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=mana-key.jks -p:AndroidSigningKeyAlias=${AndroidSigning_Key_Alias} -p:AndroidSigningKeyPass=${AndroidSigning_Key_password} -p:AndroidSigningStorePass=${AndroidSigning_store_password}
+            dotnet publish -f net8.0-android -c Release -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=mana-key.jks -p:AndroidSigningKeyAlias=$AndroidSigning_Key_Alias -p:AndroidSigningKeyPass=$AndroidSigning_Key_password -p:AndroidSigningStorePass=$AndroidSigning_store_password
       # Backup stage -------------------------------------------------------------
       # - run:
       #     name: Build .NET MAUI Project
