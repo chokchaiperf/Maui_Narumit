@@ -13,9 +13,9 @@ jobs:
             brew doctor
       - run: |
           # create variables
-          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          PP_PATH=$RUNNER_TEMP/ManaFailFast2023AdHoc.mobileprovision
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          sudo CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          sudo PP_PATH=$RUNNER_TEMP/ManaFailFast2023AdHoc.mobileprovision
+          sudo KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
 
           # import certificate and provisioning profile from secrets
           echo -n "${Certificate}" | base64 --decode -o $CERTIFICATE_PATH
@@ -44,9 +44,9 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet build -f:net8.0-ios /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
-      - store_artifacts:
-          path: './Maui_Narumit/bin'
-          destination: artifact-file
+      # - store_artifacts:
+      #     path: './Maui_Narumit/bin'
+      #     destination: artifact-file
   android_build:
     machine:
       image: windows-server-2022-gui:current
