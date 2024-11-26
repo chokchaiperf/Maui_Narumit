@@ -60,7 +60,7 @@ jobs:
           name: install certificate and provisioning profile
           command: | 
             # create variables
-            ANDROID_SIGING_PATH=C:\Users\circleci\project\mana-key.jks
+            $env:ANDROID_SIGING_PATH=C:\Users\circleci\project\mana-key.jks
 
             # import certificate and provisioning profile from secrets
             echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_SIGING_PATH
