@@ -60,7 +60,8 @@ jobs:
           name: install code siginig key for android
           command: | 
             # import certificate and provisioning profile from secrets
-            echo -n "${AndroidSigning_file}" | base64 --decode -o C:\Users\circleci\project\mana-key.jks
+            echo ${AndroidSigning_file} > keystore.txt 
+            base64 -d keystore.txt > C:\Users\circleci\project\mana-key.jks
       - run: 
           name: install android sdk
           command: |
