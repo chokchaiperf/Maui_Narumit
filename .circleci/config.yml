@@ -56,6 +56,14 @@ jobs:
     shell: powershell.exe -ExecutionPolicy Bypass
     steps:
       - checkout
+      - run:
+          name: install certificate and provisioning profile
+          command: | 
+            # create variables
+            ANDROID_SIGING_PATH=C:\Users\circleci\project\mana-key.jks
+
+            # import certificate and provisioning profile from secrets
+            echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_SIGING_PATH
       - run: 
           name: install android sdk
           command: |
@@ -74,14 +82,21 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet restore --inactive
-            dotnet build -f:net8.0-android /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
-      - store_artifacts:
-          path: './Maui_Narumit/bin/Release/net8.0-android/com.companyname.maui_narumit-Signed.aab'
-          destination: artifact-file
+            dotnet publish -f net8.0-android -c Release -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=mana-key.jks -p:AndroidSigningKeyAlias=${AndroidSigning_Key_Alias} -p:AndroidSigningKeyPass=${AndroidSigning_Key_password} -p:AndroidSigningStorePass=${AndroidSigning_store_password}
+      # Backup stage -------------------------------------------------------------
+      # - run:
+      #     name: Build .NET MAUI Project
+      #     command: |
+      #       cd Maui_Narumit
+      #       dotnet restore --inactive
+      #       dotnet build -f:net8.0-android /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
+      # - store_artifacts:
+      #     path: './Maui_Narumit/bin/Release/net8.0-android/com.companyname.maui_narumit-Signed.aab'
+      #     destination: artifact-file
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - ios_build
-      # - android_build
+      # - ios_build
+      - android_build
