@@ -11,29 +11,31 @@ jobs:
           name: Check HomeBrew
           command: |
             brew doctor
-      - run: |
-          # create variables
-          CERTIFICATE_PATH=/Users/distiller/project/build_certificate.p12
-          PP_PATH=/Users/distiller/project/ManaFailFast2023AdHoc.mobileprovision
-          KEYCHAIN_PATH=/Users/distiller/project/app-signing.keychain-db
+      - run:
+          name: install certificate and provisioning profile
+          command: | 
+            # create variables
+            CERTIFICATE_PATH=/Users/distiller/project/build_certificate.p12
+            PP_PATH=/Users/distiller/project/ManaFailFast2023AdHoc.mobileprovision
+            KEYCHAIN_PATH=/Users/distiller/project/app-signing.keychain-db
 
-          # import certificate and provisioning profile from secrets
-          echo -n "${Certificate}" | base64 --decode -o $CERTIFICATE_PATH
-          echo -n "${Provisioning_profile}" | base64 --decode -o $PP_PATH
+            # import certificate and provisioning profile from secrets
+            echo -n "${Certificate}" | base64 --decode -o $CERTIFICATE_PATH
+            echo -n "${Provisioning_profile}" | base64 --decode -o $PP_PATH
 
-          # create temporary keychain
-          security create-keychain -p "${KEYCHAIN_PASSWORD} $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security unlock-keychain -p "${KEYCHAIN_PASSWORD} $KEYCHAIN_PATH
+            # create temporary keychain
+            security create-keychain -p "${KEYCHAIN_PASSWORD} $KEYCHAIN_PATH
+            security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+            security unlock-keychain -p "${KEYCHAIN_PASSWORD} $KEYCHAIN_PATH
 
-          # import certificate to keychain
-          security import $CERTIFICATE_PATH -P "${KEYCHAIN_PASSWORD}" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          security set-key-partition-list -S apple-tool:,apple: -k "${KEYCHAIN_PASSWORD}" $KEYCHAIN_PATH
-          security list-keychain -d user -s $KEYCHAIN_PATH
+            # import certificate to keychain
+            security import $CERTIFICATE_PATH -P "${KEYCHAIN_PASSWORD}" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+            security set-key-partition-list -S apple-tool:,apple: -k "${KEYCHAIN_PASSWORD}" $KEYCHAIN_PATH
+            security list-keychain -d user -s $KEYCHAIN_PATH
 
-          # apply provisioning profile
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+            # apply provisioning profile
+            mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+            cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
       - run:
           name: Install .NET SDK
           command: |
