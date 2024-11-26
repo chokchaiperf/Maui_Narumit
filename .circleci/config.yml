@@ -57,13 +57,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install certificate and provisioning profile
+          name: install code siginig key for android
           command: | 
-            # create variables
-            $env:ANDROID_SIGING_PATH=C:\Users\circleci\project\mana-key.jks
-
             # import certificate and provisioning profile from secrets
-            echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_SIGING_PATH
+            echo -n "${AndroidSigning_file}" | base64 --decode -o C:\Users\circleci\project\mana-key.jks
       - run: 
           name: install android sdk
           command: |
