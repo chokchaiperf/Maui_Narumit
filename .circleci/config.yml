@@ -59,6 +59,14 @@ jobs:
           command: | 
             ANDROID_CERTIFICATE_PATH=/Users/distiller/project/mana-key.jks
             echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_CERTIFICATE_PATH
+            
+      - run:
+          name: Uninstall existing JDK version
+          command: |
+            # Uninstall JDK version 23 if installed
+            if brew list --cask | grep -q adoptopenjdk; then
+              brew uninstall --cask adoptopenjdk
+            fi
       
       - run:
           name: Download and Setup Android SDK
