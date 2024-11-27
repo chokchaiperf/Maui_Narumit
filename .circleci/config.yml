@@ -57,7 +57,7 @@ jobs:
       - run:
           name: install code siginig key for android
           command: | 
-            ANDROID_CERTIFICATE_PATH=/Users/distiller/project/build_certificate.p12
+            ANDROID_CERTIFICATE_PATH=/Users/distiller/project/mana-key.jks
             echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_CERTIFICATE_PATH
       
       - run:
