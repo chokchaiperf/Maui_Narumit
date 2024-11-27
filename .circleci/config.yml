@@ -74,7 +74,9 @@ jobs:
             brew install openjdk@17
             export JAVA_HOME=$(/usr/libexec/java_home -v 17)
             export PATH=$JAVA_HOME/bin:$PATH
-
+            # Verify Java installation
+            java -version
+            javac -version
             # Download Android SDK command-line tools
             curl -o commandlinetools-mac.zip https://dl.google.com/android/repository/commandlinetools-mac-7583922_latest.zip
             
