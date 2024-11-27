@@ -80,7 +80,7 @@ jobs:
             export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
             
             # Accept licenses
-            yes | sdkmanager --licenses
+            # yes | sdkmanager --licenses
             
             # Update SDK tools
             yes | sdkmanager --update
