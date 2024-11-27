@@ -98,7 +98,7 @@ jobs:
           name: Build .NET MAUI Project
           command: |
             cd Maui_Narumit
-            dotnet restore --inactive
+            dotnet restore
             dotnet publish -f net8.0-android -c Release 
       # Backup stage -------------------------------------------------------------
       # - run:
