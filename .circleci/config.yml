@@ -59,16 +59,30 @@ jobs:
           command: | 
             ANDROID_CERTIFICATE_PATH=/Users/distiller/project/build_certificate.p12
             echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_CERTIFICATE_PATH
-      - run: 
-          name: Manage Android SDK
+      
+      - run:
+          name: Download and Setup Android SDK
           command: |
-            brew install openjdk
-            export JAVA_HOME=$(/usr/libexec/java_home)
-            source ~/.zshrc
-
-            brew install --cask android-sdk
-            export ANDROID_HOME=/usr/local/share/android-sdk
-            export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+            # Download Android SDK command-line tools
+            curl -o commandlinetools-mac.zip https://dl.google.com/android/repository/commandlinetools-mac-7583922_latest.zip
+            
+            # Create Android SDK directory
+            mkdir -p ~/Library/Android/Sdk/cmdline-tools
+            
+            # Extract the downloaded tools
+            unzip commandlinetools-mac.zip -d ~/Library/Android/Sdk/cmdline-tools
+            
+            # Move the extracted tools to the correct directory
+            mv ~/Library/Android/Sdk/cmdline-tools/cmdline-tools ~/Library/Android/Sdk/cmdline-tools/latest
+            
+            # Set environment variables
+            export ANDROID_HOME=~/Library/Android/Sdk
+            export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
+            
+            # Accept licenses
+            yes | sdkmanager --licenses
+            
+            # Update SDK tools
             sdkmanager --update
 
       - run: 
