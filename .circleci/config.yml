@@ -63,7 +63,6 @@ jobs:
       - run:
           name: Download and Setup Android SDK
           command: |
-            set -x
             # Download Android SDK command-line tools
             curl -o commandlinetools-mac.zip https://dl.google.com/android/repository/commandlinetools-mac-7583922_latest.zip
             
@@ -84,8 +83,7 @@ jobs:
             yes | sdkmanager --licenses
             
             # Update SDK tools
-            sdkmanager --update
-            set +x
+            yes | sdkmanager --update
 
       - run: 
           name: manage android sdk
