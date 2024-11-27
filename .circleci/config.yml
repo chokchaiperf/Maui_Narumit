@@ -83,7 +83,7 @@ jobs:
             # yes | sdkmanager --licenses
             
             # Update SDK tools
-            yes | sdkmanager --update
+            sdkmanager --update
 
       - run: 
           name: manage android sdk
