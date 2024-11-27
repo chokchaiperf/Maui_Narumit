@@ -93,7 +93,7 @@ jobs:
           name: Install .NET SDK
           command: |
             brew install --cask dotnet-sdk
-            dotnet workload install maui
+            sudo dotnet workload install maui
       - run:
           name: Build .NET MAUI Project
           command: |
