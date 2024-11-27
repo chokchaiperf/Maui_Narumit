@@ -65,7 +65,7 @@ jobs:
           command: |
             # Uninstall JDK version 23 if installed
             brew list
-            brew uninstall --cask adoptopenjdk
+            brew uninstall --cask temurin
       
       - run:
           name: Download and Setup Android SDK
