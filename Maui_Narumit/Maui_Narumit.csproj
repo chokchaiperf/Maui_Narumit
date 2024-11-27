@@ -53,6 +53,10 @@
 		<MtouchUseLlvm>False</MtouchUseLlvm>
 		<AotAssemblies>True</AotAssemblies>
 	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-android'">
+		<RunAOTCompilation>false</RunAOTCompilation>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
