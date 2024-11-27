@@ -64,6 +64,7 @@ jobs:
           name: Uninstall existing JDK version
           command: |
             # Uninstall JDK version 23 if installed
+            brew list
             brew uninstall --cask adoptopenjdk
       
       - run:
