@@ -50,24 +50,30 @@ jobs:
       #     path: './Maui_Narumit/bin'
       #     destination: artifact-file
   android_build:
-    machine:
-      image: windows-server-2022-gui:current
-    resource_class: windows.medium
-    shell: powershell.exe -ExecutionPolicy Bypass
+    macos:
+      xcode: "16.1.0"
     steps:
       - checkout
       - run:
           name: install code siginig key for android
           command: | 
-            base64 -d $AndroidSigning_file > C:\Users\circleci\project\mana-key.jks
+            ANDROID_CERTIFICATE_PATH=/Users/distiller/project/build_certificate.p12
+            echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_CERTIFICATE_PATH
       - run: 
-          name: install android sdk
+          name: Manage Android SDK
           command: |
-            choco install android-sdk -y
+            brew install --cask android-sdk
+            export ANDROID_HOME=/usr/local/share/android-sdk
+            export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+            sdkmanager --update
+
+            brew install openjdk
+            export JAVA_HOME=$(/usr/libexec/java_home)
+            source ~/.zshrc
+
       - run: 
           name: manage android sdk
           command: |
-            "%ANDROID_HOME%\tools\bin\sdkmanager.bat --licenses" 
             sdkmanager "tools" "platform-tools" "build-tools;34.0.0" "platforms;android-34"
       - run:
           name: Install .NET SDK
@@ -78,7 +84,7 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet restore --inactive
-            dotnet publish -f net8.0-android -c Release -p:AndroidSigningKeyPass="${AndroidSigning_Key_password}" -p:AndroidSigningStorePass="${AndroidSigning_store_password}" -p:AndroidSigningKeyStore=mana-key.jks -p:AndroidSigningKeyAlias="${AndroidSigning_Key_Alias}" -p:AndroidKeyStore=true 
+            dotnet publish -f net8.0-android -c Release 
       # Backup stage -------------------------------------------------------------
       # - run:
       #     name: Build .NET MAUI Project
