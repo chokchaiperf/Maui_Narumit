@@ -61,14 +61,7 @@ jobs:
             echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_CERTIFICATE_PATH
             
       - run:
-          name: Uninstall existing JDK version
-          command: |
-            # Uninstall JDK version 23 if installed
-            brew list
-            brew uninstall --cask temurin
-      
-      - run:
-          name: Download and Setup Android SDK
+          name: Uninstall existing JDK version and re-install
           command: |
             # Install OpenJDK 17
             brew install openjdk@17
@@ -79,7 +72,14 @@ jobs:
             /Users/distiller/.bash_profile
             # Verify Java installation
             java -version
-            javac -version
+            javac -version  
+            # Uninstall JDK version 23 if installed
+            brew list
+            brew uninstall --cask temurin
+      
+      - run:
+          name: Download and Setup Android SDK
+          command: |
             # Download Android SDK command-line tools
             curl -o commandlinetools-mac.zip https://dl.google.com/android/repository/commandlinetools-mac-7583922_latest.zip
             
