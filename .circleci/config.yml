@@ -114,6 +114,11 @@ jobs:
             cd Maui_Narumit
             dotnet restore
             dotnet publish -f net8.0-android -c Release 
+      - run:
+          name: check apk file avalable
+          command: |
+            ls /Users/distiller/project/MAUI_Project/Maui_Narumit/Maui_Narumit/bin/Release/net8.0-android/publish
+            # jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /Users/distiller/project/"${AndroidSigning_file}" /Users/bloodrainz/Desktop/work/MAUI_Project/mana2018/src/Clients/ManaApp/bin/Release/net8.0-android/publish/thes.maui.client.aab "${AndroidSigning_Key_Alias}"
       # Backup stage -------------------------------------------------------------
       # - run:
       #     name: Build .NET MAUI Project
