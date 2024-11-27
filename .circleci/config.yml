@@ -117,7 +117,7 @@ jobs:
       - run:
           name: signing android app
           command: |
-            jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /Users/distiller/project/"${AndroidSigning_file}" /Users/distiller/project/Maui_Narumit/bin/Release/net8.0-android/publish/thes.maui.client.aab "${AndroidSigning_Key_Alias}"
+            jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore /Users/distiller/project/mana-key.jks -storepass "${AndroidSigning_store_password}" -keypass "${AndroidSigning_Key_password}" /Users/distiller/project/Maui_Narumit/bin/Release/net8.0-android/publish/thes.maui.client.aab "${AndroidSigning_Key_Alias}"
       # Backup stage -------------------------------------------------------------
       # - run:
       #     name: Build .NET MAUI Project
