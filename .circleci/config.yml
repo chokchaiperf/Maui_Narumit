@@ -64,9 +64,7 @@ jobs:
           name: Uninstall existing JDK version
           command: |
             # Uninstall JDK version 23 if installed
-            if brew list --cask | grep -q adoptopenjdk; then
-              brew uninstall --cask adoptopenjdk
-            fi
+            brew uninstall --cask adoptopenjdk
       
       - run:
           name: Download and Setup Android SDK
