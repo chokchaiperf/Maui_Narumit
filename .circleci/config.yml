@@ -63,19 +63,19 @@ jobs:
       - run:
           name: Uninstall existing JDK version and re-install
           command: |
+            # Uninstall JDK version 23 if installed
+            brew list
+            brew uninstall --cask temurin 
             # Install OpenJDK 17
             brew install openjdk@17
             export JAVA_HOME=$(/usr/libexec/java_home -v 17)
             export PATH=$JAVA_HOME/bin:$PATH
             echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"'
             export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
-            /Users/distiller/.bash_profile
+            source ~/.bash_profile
             # Verify Java installation
             java -version
-            javac -version  
-            # Uninstall JDK version 23 if installed
-            brew list
-            brew uninstall --cask temurin
+            javac -version
       
       - run:
           name: Download and Setup Android SDK
