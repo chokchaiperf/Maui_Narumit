@@ -65,7 +65,7 @@ jobs:
           command: |
             curl -s "https://get.sdkman.io" | bash
             source "$HOME/.sdkman/bin/sdkman-init.sh"
-            sdk version
+            sdk list
             # # Uninstall JDK version 23 if installed
             # brew list
             # brew uninstall --cask temurin 
