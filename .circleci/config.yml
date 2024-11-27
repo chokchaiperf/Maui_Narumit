@@ -63,6 +63,11 @@ jobs:
       - run:
           name: Download and Setup Android SDK
           command: |
+            # Install OpenJDK 17
+            brew install openjdk@17
+            export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+            export PATH=$JAVA_HOME/bin:$PATH
+
             # Download Android SDK command-line tools
             curl -o commandlinetools-mac.zip https://dl.google.com/android/repository/commandlinetools-mac-7583922_latest.zip
             
