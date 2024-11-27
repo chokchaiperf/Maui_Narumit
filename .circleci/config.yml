@@ -62,9 +62,8 @@ jobs:
       - run: 
           name: Manage Android SDK
           command: |
-            brew install openjdk@8
-            export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-            export PATH=$JAVA_HOME/bin:$PATH
+            brew install openjdk
+            export JAVA_HOME=$(/usr/libexec/java_home)
             source ~/.zshrc
 
             brew install --cask android-sdk
