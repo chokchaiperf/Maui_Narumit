@@ -61,21 +61,18 @@ jobs:
             echo -n "${AndroidSigning_file}" | base64 --decode -o $ANDROID_CERTIFICATE_PATH
             
       - run:
-          name: Uninstall existing JDK version and re-install
+          name: manage SDK
           command: |
-            # Uninstall JDK version 23 if installed
-            brew list
-            brew uninstall --cask temurin 
-            # Install OpenJDK 17
-            brew install openjdk@17
-            export JAVA_HOME=$(/usr/libexec/java_home -v 17)
-            export PATH=$JAVA_HOME/bin:$PATH
-            echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"'
-            export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
-            source ~/.bash_profile
-            # Verify Java installation
-            java -version
-            javac -version
+            curl -s "https://get.sdkman.io" | bash
+            source "$HOME/.sdkman/bin/sdkman-init.sh"
+            sdk version
+            # # Uninstall JDK version 23 if installed
+            # brew list
+            # brew uninstall --cask temurin 
+            # # Install OpenJDK 17
+            # brew install openjdk@17
+            
+            # source /Users/distiller/.bash_profile
       
       - run:
           name: Download and Setup Android SDK
