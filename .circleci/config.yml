@@ -46,9 +46,9 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet build -f:net8.0-ios /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
-      # - store_artifacts:
-      #     path: './Maui_Narumit/bin'
-      #     destination: artifact-file
+      - store_artifacts:
+          path: '/Users/distiller/project/Maui_Narumit/bin/Release/net8.0-ios/ios-arm64/publish/Maui_Narumit.ipa'
+          destination: artifact-file
   android_build:
     macos:
       xcode: "16.1.0"
@@ -123,16 +123,9 @@ jobs:
           name: verify signing app
           command: |
             jarsigner -verify -verbose -certs /Users/distiller/project/Maui_Narumit/bin/Release/net8.0-android/publish/thes.maui.client.aab
-      # Backup stage -------------------------------------------------------------
-      # - run:
-      #     name: Build .NET MAUI Project
-      #     command: |
-      #       cd Maui_Narumit
-      #       dotnet restore --inactive
-      #       dotnet build -f:net8.0-android /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
-      # - store_artifacts:
-      #     path: './Maui_Narumit/bin/Release/net8.0-android/com.companyname.maui_narumit-Signed.aab'
-      #     destination: artifact-file
+      - store_artifacts:
+          path: '/Users/distiller/project/Maui_Narumit/bin/Release/net8.0-android/publish/thes.maui.client.aab'
+          destination: artifact-file
 
 workflows:
   version: 2
