@@ -45,7 +45,7 @@ jobs:
           name: Build .NET MAUI Project
           command: |
             cd Maui_Narumit
-            dotnet build -f:net8.0-ios /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
+            dotnet publish -f:net8.0-ios -c Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
       - store_artifacts:
           path: '/Users/distiller/project/Maui_Narumit/bin/Release/net8.0-ios/ios-arm64/publish/Maui_Narumit.ipa'
           destination: artifact-file
@@ -113,7 +113,7 @@ jobs:
           command: |
             cd Maui_Narumit
             dotnet restore
-            dotnet publish -f net8.0-android -c Release 
+            dotnet publish -f net8.0-android -c Release /p:ArchiveOnBuild=true /p:EnableAssemblyILStripping=false 
       - run:
           name: signing android app
           command: |
